@@ -1,0 +1,112 @@
+{
+    "Semester 1":{
+        "Subject Codes":{
+            "Computer Science And Engineering":["CS101", "CS102", "CS103"],
+            "Information Science And Engineering":[],
+            "Electronics And Communication Engineering":[],
+            "Artificial Intelligence And Machine Learning":[],
+            "Computer Science And Design":[],
+            "Computer Science And Business Systems":[]
+        }
+
+    },
+
+    "Semester 2":{
+        "Subject Codes":{
+            "Computer Science And Engineering":[],
+            "Information Science And Engineering":[],
+            "Electronics And Communication Engineering":[],
+            "Artificial Intelligence And Machine Learning":[],
+            "Computer Science And Design":[],
+            "Computer Science And Business Systems":[]
+        }
+
+    },
+
+    "Semester 3":{
+        "Subject Codes":{
+            "Computer Science And Engineering":[],
+            "Information Science And Engineering":[],
+            "Electronics And Communication Engineering":[],
+            "Artificial Intelligence And Machine Learning":[],
+            "Computer Science And Design":[],
+            "Computer Science And Business Systems":[]
+        }
+
+    },
+
+    "Semester 4":{
+        "Subject Codes":{
+            "Computer Science And Engineering":[],
+            "Information Science And Engineering":[],
+            "Electronics And Communication Engineering":[],
+            "Artificial Intelligence And Machine Learning":[],
+            "Computer Science And Design":[],
+            "Computer Science And Business Systems":[]
+        }
+
+    },
+
+    "Semester 5":{
+        "Subject Codes":{
+            "Computer Science And Engineering":[],
+            "Information Science And Engineering":[],
+            "Electronics And Communication Engineering":[],
+            "Artificial Intelligence And Machine Learning":[],
+            "Computer Science And Design":[],
+            "Computer Science And Business Systems":[]
+        }
+
+    },
+
+    "Semester 6":{
+        "Subject Codes":{
+            "Computer Science And Engineering":["BCS601","BCS602","BCS603"],
+            "Information Science And Engineering":[],
+            "Electronics And Communication Engineering":[],
+            "Artificial Intelligence And Machine Learning":[],
+            "Computer Science And Design":[],
+            "Computer Science And Business Systems":[]
+        }
+
+    },
+
+    "Semester 7":{
+        "Subject Codes":{
+            "Computer Science And Engineering":[],
+            "Information Science And Engineering":[],
+            "Electronics And Communication Engineering":[],
+            "Artificial Intelligence And Machine Learning":[],
+            "Computer Science And Design":[],
+            "Computer Science And Business Systems":[]
+        }
+
+    },
+
+    "Semester 8":{
+        "Subject Codes":{
+            "Computer Science And Engineering":[],
+            "Information Science And Engineering":[],
+            "Electronics And Communication Engineering":[],
+            "Artificial Intelligence And Machine Learning":[],
+            "Computer Science And Design":[],
+            "Computer Science And Business Systems":[]
+        }
+
+    },
+
+    "Branch":{
+        "Branch":["Computer Science And Engineering","Information Science And Engineering",
+        "Electronics And Communication Engineering","Artificial Intelligence And Machine Learning","Computer Science And Design",
+        "Computer Science And Business Systems"]
+    },
+
+    "Subject_name":{
+        "CS101":["Computer Science Fundamentals"],
+        "CS102":["Data Structures and Algorithms"],
+        "CS103":["Database Management Systems"],
+        "BCS601":["Cloud Computing"],
+        "BCS602":["Machine Learning"],
+        "BCS603":["Block Chain"]
+    }
+}
