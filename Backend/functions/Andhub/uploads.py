@@ -130,7 +130,7 @@ def save_metadata():
     
     # Ensure upload_requirements is accessible and correctly structured
     subject_name = upload_requirements.get('Subject_name', {}).get(data.get('subjectCode'), ['Unknown Subject'])[0]
-    app_logger.info(f"Resolved subject name: {subject_name}")
+    
 
     try:
         new_material = MaterialMetadata(
@@ -153,7 +153,7 @@ def save_metadata():
 
     except Exception as e:
         db.session.rollback()
-        app_logger.error(f"Error saving metadata: {e}", exc_info=True)
+        
         return jsonify({'error': 'Failed to save metadata'}), 500
     
 @uploads.route("/proxy-upload-to-google", methods=["POST"])
@@ -214,3 +214,40 @@ def finalize_upload(file_id):
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+@uploads.route('/save-placement-metadata', methods=['POST'])
+@jwt_required()
+def save_placement_metadata():
+    from .dbmodels import PlacementMaterialMetadata, Users
+    from .Main import db
+    data = request.json
+    current_user = get_jwt_identity()
+    
+    user = Users.query.filter_by(and_id=current_user).first()
+    if not user:
+        return jsonify({'error': 'Invalid user'}), 404
+    
+    # Ensure upload_requirements is accessible and correctly structured
+    
+
+    try:
+        new_material = PlacementMaterialMetadata(
+            and_id=current_user,
+            type=data.get('type'),
+            category=data.get('category'),
+            details=data.get('details'),
+            original_file_name=data.get('originalFileName'),
+            file_url=data.get('fileUrl'), # Assuming this is meant to store the Google Drive File ID now
+            description=data.get('description')
+        )
+
+        db.session.add(new_material)
+        db.session.commit()
+
+        return jsonify({'message': 'Metadata saved successfully'}), 201
+
+    except Exception as e:
+        db.session.rollback()
+        
+        return jsonify({'error': 'Failed to save metadata'}), 500
+    

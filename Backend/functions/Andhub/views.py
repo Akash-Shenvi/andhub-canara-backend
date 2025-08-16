@@ -253,3 +253,57 @@ def update_material(material_id):
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
+    
+    
+@views.route('/get_placement_materials', methods=['GET'])
+def get_placement_materials():
+    from .dbmodels import PlacementMaterialMetadata
+    from .Main import db
+    type = request.args.get("type")
+    materials = (
+        PlacementMaterialMetadata.query.filter_by(type=type)
+        .with_entities(PlacementMaterialMetadata.category,)
+        .all()
+    )
+    print(materials)
+    return jsonify({"categories": [m.category for m in materials]}), 200
+
+@views.route('/get-aptitude-materials', methods=['POST'])
+def get_aptitude_materials():
+    from .dbmodels import PlacementMaterialMetadata
+    data = request.get_json()
+    category = data.get("category")
+
+    materials = PlacementMaterialMetadata.query.filter_by(
+        category=category
+    ).all()
+
+    result = []
+    for mat in materials:
+        file_id = mat.file_url
+        view_link = f"https://drive.google.com/file/d/{file_id}/view?usp=drivesdk"
+        result.append({
+            "id": mat.id,
+            "url": view_link,
+            "details": mat.details,
+            "description": mat.description,
+            "type": "pdf"
+        })
+
+    return jsonify({"materials": result})
+
+
+@views.route('/download-placement/<material_id>', methods=['GET'])
+def download_material_placement(material_id):
+    # Step 1: Get material metadata from your database
+    from .dbmodels import PlacementMaterialMetadata
+    material = PlacementMaterialMetadata.query.filter_by(id=material_id).first()
+    if not material:
+        return jsonify({"error": "Material not found"}), 404
+
+    # This is the Google Drive File ID you stored in your database
+    file_id = material.file_url 
+    
+    
+    base_url = f"https://drive.usercontent.google.com/u/0/uc?id={file_id}&export=download"
+    return jsonify({"downloadUrl":base_url})    

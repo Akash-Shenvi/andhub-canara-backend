@@ -64,3 +64,15 @@ class MaterialMetadata(db.Model):
     # uploaded_at = db.Column(db.DateTime, default=datetime.utcnow)
     subject_name = db.Column(db.String(60), nullable=True)
     description = db.Column(db.Text, nullable=True)
+    
+class PlacementMaterialMetadata(db.Model):
+    __tablename__ = 'placement_material_metadata'
+    id = db.Column(db.Integer, primary_key=True)
+    and_id = db.Column(db.String(100), db.ForeignKey('users.and_id'), nullable=False)
+    type = db.Column(db.String(100), nullable=False)
+    category = db.Column(db.String(100), nullable=False)
+    original_file_name = db.Column(db.String(80), nullable=False)
+    file_url = db.Column(db.Text, nullable=False)
+    # uploaded_at = db.Column(db.DateTime, default=datetime.utcnow)
+    description = db.Column(db.String(255), nullable=True)
+    details = db.Column(db.String(255), nullable=True)

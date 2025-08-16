@@ -201,3 +201,11 @@ def update_user(and_id):
     db.session.commit()
     return jsonify({"message": "User updated successfully"}), 200
 
+@auth.route("Check-admin", methods=["GET"])
+@jwt_required()
+def check_admin():
+    from .dbmodels import Users
+    current_user = get_jwt_identity()
+    user = Users.query.filter_by(and_id=current_user).first()
+    if user and user.user_type in ['DEVELOPER', 'MAINTAINER']:
+        return jsonify({"is_admin": True}), 200
