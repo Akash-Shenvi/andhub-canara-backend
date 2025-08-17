@@ -262,7 +262,7 @@ def get_placement_materials():
     type = request.args.get("type")
     materials = (
         PlacementMaterialMetadata.query.filter_by(type=type)
-        .with_entities(PlacementMaterialMetadata.category,)
+        .with_entities(PlacementMaterialMetadata.category,).distinct()
         .all()
     )
     print(materials)
