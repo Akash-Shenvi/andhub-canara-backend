@@ -183,6 +183,7 @@ def get_users():
 def update_user(and_id):
     from .dbmodels import Users
     from .Main import db
+    from .mail_handler import made_maintainer,made_user
     data = request.get_json()
     current_user = get_jwt_identity()
     users=Users.query.filter_by(and_id=current_user).first()
@@ -197,6 +198,13 @@ def update_user(and_id):
     for field in editable_fields:
         if field in data:
             setattr(user, field, data[field])
+    if data.get("user_type") == "MAINTAINER":
+        made_maintainer(user.email, user.name)
+    if data.get("user_type") == "DEVELOPER":
+        made_maintainer(user.email, user.name)
+    if data.get("user_type") == "USER":
+        made_user(user.email, user.name)
+    
 
     db.session.commit()
     return jsonify({"message": "User updated successfully"}), 200

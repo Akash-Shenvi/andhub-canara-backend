@@ -237,7 +237,7 @@ def save_placement_metadata():
             category=data.get('category'),
             details=data.get('details'),
             original_file_name=data.get('originalFileName'),
-            file_url=data.get('fileUrl'), # Assuming this is meant to store the Google Drive File ID now
+            file_url=data.get('fileUrl'), 
             description=data.get('description')
         )
 

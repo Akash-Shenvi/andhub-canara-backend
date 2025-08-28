@@ -73,11 +73,11 @@
 
     "Semester 7":{
         "Subject Codes":{
-            "Computer Science And Engineering":[],
+            "Computer Science And Engineering":["BSC701","BCS702","BCS703","BCS714D","BME755A","BCS786"],
             "Information Science And Engineering":[],
             "Electronics And Communication Engineering":[],
             "Artificial Intelligence And Machine Learning":[],
-            "Computer Science And Design":[],
+            "Computer Science And Design":["BCG701","BCS702","BCS703","BCG714D","BME755A","BCG786"],
             "Computer Science And Business Systems":[]
         }
 
@@ -107,6 +107,15 @@
         "CS103":["Database Management Systems"],
         "BCS601":["Cloud Computing"],
         "BCS602":["Machine Learning"],
-        "BCS603":["Block Chain"]
+        "BCS603":["Block Chain"],
+        "BSC701":["Internet Of Things"],
+        "BCS702":["Parallel Computing"],
+        "BCS703":["Cryptography And Network Security"],
+        "BCS714D":["Big Data Analytics"],
+        "BME755A":["Introduction To Nontraditional Machining"],
+        "BCS786":["Major Project Phase 2"],
+        "BCG701":["Robotic Process Automation Design And Development"],
+        "BCG786":["Major Project Phase 2"],
+        "BCG714D":["Animation Principles And Design"]
     }
 }
